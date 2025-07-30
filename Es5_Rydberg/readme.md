@@ -63,8 +63,6 @@ This notebook computes the parameters **A** and **B** from measured diffraction 
 
 For different wavelengths, fit the formula
 
-$
-\frac{1}{\lambda} = R_H \left( \frac{1}{n_1^2} - \frac{1}{n_2^2} \right)
-$
+$\frac{1}{\lambda} = R_H \left( \frac{1}{n_{1}^{2}} - \frac{1}{n_{2}^{2}} \right)$
 
 to obtain $R_H$.
