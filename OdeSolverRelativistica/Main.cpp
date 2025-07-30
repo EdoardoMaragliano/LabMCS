@@ -8,7 +8,7 @@
 #include <TH2D.h>
 #include <TApplication.h>
 #include <TStyle.h>
-
+#include <TSystem.h>
 
 #include "OdeSolver.h"
 #include "Vettore.h"
@@ -70,13 +70,16 @@ int main(){
 
   gPad->DrawFrame(-2000,-2000,2000,2000);
   int color[10]={kOrange+1,kViolet+1,kGreen+2,kAzure+1,kRed+2,kRed-7,kCyan-8,kBlue-7,kBlue+1,kBlue+2};
+
   for (unsigned int i=0;i<ode.N();i++){
     gr[i].SetPoint(0,ode.Punto(i).R().X(),ode.Punto(i).R().Y());
     gr[i].SetMarkerColor(color[i]); gr[i].SetMarkerStyle(20); gr[i].SetMarkerSize(0.1);
     if (i==0) gr[i].SetMarkerSize(1);
     gr[i].Draw("PC");
+
+    gPad->Modified(); gPad->Update();
   }
-  gPad->Modified(); gPad->Update();
+
   app.Run(true);
   
   //Run del metodo numerico + grafico in tempo reale delle coordinate
@@ -92,6 +95,7 @@ int main(){
       gr[i].SetPoint(gr[i].GetN(),ode.Punto(i).R().X(),ode.Punto(i).R().Y());
       } 
     gPad->Modified(); gPad->Update();
+    gSystem->ProcessEvents(); 
     }
 
   app.Run(true);
