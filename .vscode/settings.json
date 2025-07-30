@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "Contour.C": "cpp",
+        "ostream": "cpp",
+        "fit-finale.C": "cpp",
+        "macro.C": "cpp"
+    }
+}

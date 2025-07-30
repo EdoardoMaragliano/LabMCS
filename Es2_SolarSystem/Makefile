@@ -13,7 +13,6 @@ OdeSolver.o: OdeSolver.cpp
 	$(CC) $(CFLAGS) -c OdeSolver.cpp      $(CFLAGSROOT)
 Main: Main.cpp Vettore.o PuntoMateriale.o OdeSolver.o
 	$(CC) $(CFLAGS) -o Main Main.cpp Vettore.o OdeSolver.o PuntoMateriale.o $(CFLAGSROOT) $(LIBSROOT)
-MainPM: MainPM.cpp Vettore.o PuntoMateriale.o  
 
 clean:
-	rm *.o Main MainPM
+	rm *.o Main 

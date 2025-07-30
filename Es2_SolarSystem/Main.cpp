@@ -8,6 +8,7 @@
 #include <TH2D.h>
 #include <TApplication.h>
 #include <TStyle.h>
+#include <TSystem.h>
 
 #include <functional>
 #include "OdeSolver.h"
@@ -58,12 +59,14 @@ int main(){
   
   //Creazione dei grafici (uno per pianeta)
   vector<TGraph> gr(p.size());
-  TCanvas c("c","",10,10,500,500);
+  TCanvas c("c","",10,10,800,800);
   
   //Preparazione grafico delle coordinate dei pianeti
   double size=10; // 5 unita' astronomiche
   gPad->DrawFrame(-size,-size,size,size);
+
   int color[10]={kOrange+1,kViolet+1,kGreen+2,kAzure+1,kRed+2,kRed-7,kCyan-8,kBlue-7,kBlue+1,kBlue+2};
+
   for (unsigned int i=0;i<ode.N();i++){
     gr[i].SetPoint(i,ode.Punto(i).R().X(),ode.Punto(i).R().Y());
     gr[i].SetMarkerColor(color[i]); gr[i].SetMarkerStyle(20); gr[i].SetMarkerSize(0.1);
@@ -75,7 +78,7 @@ int main(){
 
   //Run del metodo numerico + grafico in tempo reale delle coordinate e del mom. angolare totale
   int k=0;
-  while (ode.T()<1000){
+  while (ode.T()<5000){
     ode.Cinematica();
     if (k%10==0){
       for (unsigned int i=0;i<ode.N();i++){
@@ -84,6 +87,7 @@ int main(){
       }
 
     gPad->Modified(); gPad->Update();
+    gSystem->ProcessEvents();  // <---- questa linea!
     }
       k++;
   }

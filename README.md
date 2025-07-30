@@ -9,7 +9,6 @@ This repository collects exercises, scripts, and projects related to the course 
 - `Es4_MC/`: Monte Carlo methods for numerical integration
 - `Es5_Rydberg/`: data analysis to extract the Rydberg constant
 - `Es6_Millikan_A/` and `Es7_Millikan_B/`: Millikan oil-drop experiment data
-- `EsFitI/` and `EsFitII/`: curve fitting of experimental data (with/without ROOT)
 - `OdeSolverRelativistica/`: relativistic dynamics simulation in C++
 - `complessi/`: operations on complex numbers
 - `PuntoMateriale/`, `Vettore/`: base classes for physical objects
