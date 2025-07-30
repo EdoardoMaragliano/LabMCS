@@ -1,3 +1,4 @@
 esami-vecchi
 *.x
 *.dSYM
+*.DS_Store
