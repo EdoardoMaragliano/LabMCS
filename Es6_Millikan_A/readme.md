@@ -4,9 +4,9 @@ This folder continues the analysis of the Millikan oil-drop experiment, with mor
 
 ## 📁 Key Files
 
-- `millikan_b.py`: updated script for computing charge and error analysis
-- `dati1.txt`, `dati2.txt`: measurement data
-- `grafici/`: output figures
+- `Millikan.py`: python script dependend on ROOT
+- `Millikan_standalone.py`: alternative python script, independent of ROOT
+- `Millikan.py`: original C++ implementation. Compiling and dependencies are handled via Makefile.
 
 ## 🎯 Goal
 

@@ -1,6 +1,7 @@
-from ROOT import *
-from iminuit import Minuit
 import numpy as np
+from ROOT import TCanvas, TGraph, TF1, TH1D, gApplication, kGreen, kRed, kBlue
+from iminuit import Minuit
+
 from math import *
 from scipy import stats
 
@@ -8,9 +9,6 @@ def chi2(par):
     final =((par[1]/par[0] - he)/ehe)**2+((par[1]/par[2]-hk)/ehk)**2+((par[0]/par[2]-ek)/eek)**2+((par[0]-elec)/erre)**2
 
     return final
-
-
-
 
 
 file1 = open("Millikan.dat")
@@ -21,9 +19,6 @@ for line in file1:
    h.Fill(float(val[0]))
    data=np.append(data,float(val[0]))
 h.Draw()
-
-
-
 
 
 f = TF1("f", "[4]*([0]*TMath::Gaus(x,[1],[2],1)+[3]*TMath::Gaus(x,2*[1],[2],1)+(1-[0]-[3])*TMath::Gaus(x,3*[1],[2],1))",0,6)
@@ -40,7 +35,7 @@ h.Fit("f","R")
 elec = f.GetParameter(1)
 erre =f.GetParError(1)
 
-print "e = ", elec, "+/-", erre
+print("e = ", elec, "+/-", erre)
 
 par = np.ndarray(3)
 par[0] = 1.602
@@ -60,9 +55,9 @@ ehk = 0.159533
 m = Minuit.from_array_func(chi2, par, print_level = 1)
 m.migrad()
 
-print " e = ", m.values[0], "+/-", m.errors[0], "E-19 C"
-print "h = ", m.values[1], "+/-", m.errors[1], "E-34 J*s"
-print "k = ", m.values[2], "+/-", m.errors[2], "E-23 J/K"
+print (" e = ", m.values[0], "+/-", m.errors[0], "E-19 C")
+print ("h = ", m.values[1], "+/-", m.errors[1], "E-34 J*s")
+print ("k = ", m.values[2], "+/-", m.errors[2], "E-23 J/K")
 
 xminos1, yminos1, ctr1 = m.mncontour('x0','x1',sigma=1,numpoints=100)  #(e/h)
 xminos2, yminos2, ctr2 = m.mncontour('x0','x2',sigma=1,numpoints=100) #(e/k)
@@ -104,15 +99,5 @@ con2.Draw("AP")
 c = TCanvas()
 con3.SetTitle("h/k")
 con3.Draw("AP")
-
-
-
-
-
-
-
-
-
-
 
 gApplication.Run(True)

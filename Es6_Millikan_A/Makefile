@@ -7,4 +7,4 @@ Millikan: Millikan.cpp
 	$(CC) $(CFLAGS) -o Millikan.x Millikan.cpp $(CFLAGSROOT) $(LIBSROOT)
 
 clean:
-	rm *.o Millikan MillikanPM
+	rm *.o Millikan.x 
