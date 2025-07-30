@@ -2,6 +2,9 @@
 
 This repository collects exercises, scripts, and projects related to the course **Computational Methods for Science**, focusing on scientific programming applied to physics and mathematics problems.
 
+<img width="1024" height="1024" alt="LabMCS_repo_img" src="https://github.com/user-attachments/assets/002d0224-8fc3-4990-b27b-6152f86868d2" />
+
+
 ## 📁 Folder Structure
 
 - `Es2_SolarSystem/`: planetary motion simulation
